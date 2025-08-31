@@ -8,3 +8,79 @@
 
 {% block code_verify %}
 {% endblock code_verify %}
+
+{% block login %}
+{% csrf_token %}
+
+
+
+<div class="min-h-screen flex items-center justify-center animated-bg p-4 relative">
+  <!-- Floating Particles -->
+  <div class="floating-particles">
+    <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 25%; animation-delay: 2s;"></div>
+    <div class="particle" style="left: 40%; animation-delay: 4s;"></div>
+    <div class="particle" style="left: 55%; animation-delay: 1s;"></div>
+    <div class="particle" style="left: 70%; animation-delay: 3s;"></div>
+    <div class="particle" style="left: 85%; animation-delay: 5s;"></div>
+  </div>
+
+  <div class="w-full max-w-md glass-ultra cyber-glow rounded-2xl shadow-2xl p-8 sm:p-10 relative">
+    <!-- Header -->
+    <div class="fade-in stagger-1">
+      <h2 class="text-3xl sm:text-3xl font-black text-center mb-2 title-glow">SUSHANT_STORES</h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto rounded-full mb-4"></div>
+      <p class="text-center text-sm sm:text-base text-slate-300 mb-8 font-medium ">Login to the system</p>
+    </div>
+
+    <!-- Login Form -->
+    <form method="post" class="space-y-6">
+      {% csrf_token %}
+
+      <!-- Username -->
+      <div class="relative fade-in stagger-2">
+        <input type="text" name="username" id="username" required
+          class="input-field peer w-full px-4 pt-6 pb-3 rounded-xl text-white placeholder-transparent outline-none transition-all duration-300"
+          placeholder="Username" />
+        <label for="username"
+          class="label-floating absolute left-4 top-2 text-xs font-semibold transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-xs">
+          USERNAME
+        </label>
+      </div>
+
+      <!-- Password -->
+      <div class="relative fade-in stagger-3">
+        <input type="password" name="password" id="password" required
+          class="input-field peer w-full px-4 pt-6 pb-3 rounded-xl text-white placeholder-transparent outline-none transition-all duration-300"
+          placeholder="Password" />
+        <label for="password"
+          class="label-floating absolute left-4 top-2 text-xs font-semibold transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-xs">
+          PASSWORD
+        </label>
+      </div>
+
+      <!-- Show/Hide Password -->
+      <div class="flex items-center justify-end -mt-3 fade-in stagger-4">
+        <button type="button" id="togglePassword" class="text-xs text-blue-400 hover:text-cyan-300 font-semibold transition-colors">
+          SHOW PASSWORD
+        </button>
+      </div>
+
+      <button 
+      type="submit"
+      class="stagger-animation stagger-4 w-full py-4 px-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-lg font-bold text-white text-lg shadow-2xl button-hover transform transition-all duration-300 hover:scale-105 hover:shadow-blue-500/50 relative overflow-hidden"
+      >
+      <span class="relative z-10">LOGIN </span>
+      </button>
+
+      <!-- Register link -->
+      <p class="text-sm text-slate-400 text-center mt-8 fade-in stagger-7">
+        New to the system?
+        <a href="{% url 'code_verify' %}" class="text-blue-400 hover:text-cyan-300 font-semibold transition-colors ml-1">Create Account</a>
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- Enhanced JS for password toggle -->
+{% endblock login %}
